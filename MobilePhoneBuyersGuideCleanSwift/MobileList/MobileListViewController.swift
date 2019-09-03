@@ -10,128 +10,129 @@ import UIKit
 
 protocol MobileListViewControllerInterface: class {
   func displayAllList(viewModel:  MobileList.GetData.ViewModel)
-  func addFavorite(cell: UITableViewCell,isFav:Bool)
+  func addFavorite(cell: UITableViewCell)
+  func displaySetFavorite(index: Int)
 }
 
 class MobileListViewController: UIViewController, MobileListViewControllerInterface {
- @IBOutlet var mTableView: UITableView!
+  
+  @IBOutlet var mTableView: UITableView!
   @IBOutlet weak var favoriteBtn: UIButton!
   @IBOutlet weak var allBtn: UIButton!
-
+  
   
   var interactor: MobileListInteractorInterface!
   var router: MobileListRouter!
-
+  var displayedMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+  var displayedAllMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+  var isTapped:Bool = false
+  
   // MARK: - Object lifecycle
-
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     configure(viewController: self)
   }
-
+  
   // MARK: - Configuration
-
+  
   private func configure(viewController: MobileListViewController) {
     let router = MobileListRouter()
     router.viewController = viewController
-
+    
     let presenter = MobileListPresenter()
     presenter.viewController = viewController
-
+    
     let interactor = MobileListInteractor()
     interactor.presenter = presenter
     interactor.worker = MobileListWorker(store: MobileListStore())
-
+    
     viewController.interactor = interactor
     viewController.router = router
   }
-
+  
   // MARK: - View lifecycle
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     doSomethingOnLoad()
     mTableView.register(UINib(nibName: "DeatailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
   }
-
+  
   // MARK: - Event handling
-
+  
   func doSomethingOnLoad() {
     // NOTE: Ask the Interactor to do some work
     let request = MobileList.GetData.Request()
     interactor.getData(request: request)
   }
-
+  
   // MARK: - Display logic
   
-  var displayedMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
-  var displayedAllMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+  
+  
   func displayAllList(viewModel: MobileList.GetData.ViewModel) {
     displayedMobile = viewModel.displayedMobile
     displayedAllMobile = viewModel.displayedMobile
-    print(displayedMobile)
     mTableView.reloadData()
   }
-
+  
+  func displaySetFavorite(index: Int) {
+    interactor.mobileData[index].isFav = !interactor.mobileData[index].isFav
+    guard let cell = mTableView.cellForRow(at: IndexPath(item: index, section: 0)) as? MobileTableViewCell else {
+      return
+    }
+    cell.setImageButton(isFav: interactor.mobileData[index].isFav)
+  }
+  
   // MARK: - Router
-
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     router.passDataToNextScene(segue: segue)
   }
   
   func showAlert() {
     let alert = UIAlertController(title: "Sort", message: nil, preferredStyle: .alert)
+    var sort: MobileList.sortData?
     
     alert.addAction(UIAlertAction(title: "Price low to high", style: .default, handler: { (_) in
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.price<second.price
-      })
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.price<second.price
-      })
-      self.mTableView.reloadData()
+      sort = MobileList.sortData.lowToHigh
+      let request = MobileList.SortData.Request.init(sort: sort ?? MobileList.sortData.lowToHigh)
+      self.interactor.sortData(request: request)
     }))
     
     alert.addAction(UIAlertAction(title: "Price high to low", style: .default, handler: { (_) in
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.price>second.price
-      })
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.price>second.price
-      })
-      
-      self.mTableView.reloadData()
+      sort = MobileList.sortData.highToLow
+      let request = MobileList.SortData.Request.init(sort: sort ?? MobileList.sortData.lowToHigh)
+      self.interactor.sortData(request: request)
     }))
     
     alert.addAction(UIAlertAction(title: "Rating", style: .default, handler: { (_) in
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.rating>second.rating
-      })
-      self.displayedMobile.sort(by: { (first, second) -> Bool in
-        first.rating>second.rating
-      })
-      
-      self.mTableView.reloadData()
+      sort = MobileList.sortData.rating
+      let request = MobileList.SortData.Request.init(sort: sort ?? MobileList.sortData.lowToHigh)
+      self.interactor.sortData(request: request)
     }))
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
       
     }))
     self.present(alert, animated: true, completion: nil)
   }
-
+  
   @IBAction func unwindToMobileListViewController(from segue: UIStoryboardSegue) {
     print("unwind...")
     router.passDataToNextScene(segue: segue)
   }
   
-   @IBAction func tapFav() {
-    displayedMobile = displayedMobile.filter { $0.isfav == true }
+  @IBAction func tapFav() {
+    isTapped = true
+    displayedMobile = displayedMobile.filter { $0.isFav == true }
     mTableView.reloadData()
     allBtn.setTitleColor(UIColor.lightGray, for: .normal)
     favoriteBtn.setTitleColor(UIColor.black, for: .normal)
   }
   
-   @IBAction func tapAll() {
+  @IBAction func tapAll() {
+    isTapped = false
     displayedMobile = displayedAllMobile
     mTableView.reloadData()
     allBtn.setTitleColor(UIColor.black, for: .normal)
@@ -153,15 +154,17 @@ extension MobileListViewController: UITableViewDataSource, UITableViewDelegate {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") as? MobileTableViewCell else {
       return UITableViewCell()
     }
-    let bool = displayedMobile[indexPath.row].isfav
+    let bool = displayedMobile[indexPath.row].isFav
     cell.vc = self
     cell.nameLabel.text = displayedMobile[indexPath.row].name
     cell.descriptionLabel.text = displayedMobile[indexPath.row].mobileDatumDescription
     cell.priceLabel.text = displayedMobile[indexPath.row].price
     cell.ratingLabel.text = displayedMobile[indexPath.row].rating
     cell.img.loadImageUrl(displayedMobile[indexPath.row].thumbImageURL)
-//    cell.starBtn.isHidden = isSelected
-    cell.setImageButton(isfav: bool)
+    //    cell.starBtn.isHidden = isSelected
+    cell.setImageButton(isFav: bool)
+    cell.hiddenStar(isHidden: isTapped)
+    
     return cell
   }
   
@@ -176,29 +179,17 @@ extension MobileListViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if (editingStyle == .delete) {
-//      let id = favInfo[indexPath.row].id
-//      favInfo.remove(at: indexPath.row)
-//      info = favInfo
-//      var index = 0
-//      while(index < allInfo.count) {
-//        if id == allInfo[index].id {
-//          allInfo[index].isfav = false
-//          let index = idList.firstIndex(of: self.allInfo[index].id)
-//          idList.remove(at: index ?? 0)
-//        }
-//        index+=1
-//      }
       
       mTableView.reloadData()
     }
   }
   
-  func addFavorite(cell: UITableViewCell,isFav:Bool) {
+  func addFavorite(cell: UITableViewCell) {
     let favCell = mTableView.indexPath(for: cell)
     let index = favCell?.row ?? 0 as Int
     let request = MobileList.SetFavorite.Request(indexPath: index)
     interactor.setFavorite(request: request)
-    mTableView.reloadData()
+    //    mTableView.reloadData()
   }
   
 }

@@ -22,16 +22,16 @@ class MobileTableViewCell: UITableViewCell {
   
   @IBAction func tap(_ sender: UIButton) {
     isTapped = !isTapped
-    vc?.addFavorite(cell: self, isFav: isTapped)
+    vc?.addFavorite(cell: self)
     
   }
-  func setImageButton (isfav:Bool){
+  func setImageButton (isFav: Bool) {
     let imageStar: UIImage?
-    if isfav {
-      isTapped = isfav
+    if isFav {
+      isTapped = isFav
       imageStar = UIImage(named: "star-tap.png")
     } else {
-      isTapped = isfav
+      isTapped = isFav
       imageStar = UIImage(named: "star.png")
     }
     if let imageStar = imageStar {
@@ -39,6 +39,7 @@ class MobileTableViewCell: UITableViewCell {
     }
   }
   
-  
-  
+  func hiddenStar(isHidden: Bool){
+    starBtn.isHidden = isHidden
+  }
 }

@@ -10,22 +10,10 @@ import UIKit
 
 struct MobileList {
   /// This structure represents a use case
-  struct AllList {
-    /// Data struct sent to Interactor
-    struct Request {}
-    /// Data struct sent to Presenter
-    struct Response {}
-    /// Data struct sent to ViewController
-    struct ViewModel {}
-  }
-  
-  struct FavoriteList {
-    /// Data struct sent to Interactor
-    struct Request {}
-    /// Data struct sent to Presenter
-    struct Response {}
-    /// Data struct sent to ViewController
-    struct ViewModel {}
+  enum  sortData {
+    case lowToHigh
+    case highToLow
+    case rating
   }
   
   struct SetFavorite {
@@ -57,7 +45,7 @@ struct MobileList {
   struct SortData {
     /// Data struct sent to Interactor
     struct Request {
-      var type: String
+      var sort: sortData
     }
     /// Data struct sent to Presenter
     struct Response {
@@ -73,7 +61,7 @@ struct MobileList {
         let id: Int
         let name, mobileDatumDescription: String
         let price: String
-        var isfav:Bool = false
+        var isFav:Bool = false
       }
       var displayedMobile: [DisplayedMobile]
       
@@ -98,7 +86,7 @@ struct MobileList {
         let id: Int
         let name, mobileDatumDescription: String
         let price: String
-        var isfav:Bool = false
+        var isFav:Bool = false
       }
       var displayedMobile: [DisplayedMobile]
       
