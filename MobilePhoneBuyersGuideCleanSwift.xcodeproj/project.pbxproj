@@ -138,6 +138,7 @@
 		2E376047231CD0A20005BB35 /* MobileList */ = {
 			isa = PBXGroup;
 			children = (
+				2E376061231E1CBD0005BB35 /* Cell */,
 				2E376048231CD0B70005BB35 /* MobileListStore.swift */,
 				2E376049231CD0B70005BB35 /* MobileListPresenter.swift */,
 				2E37604A231CD0B70005BB35 /* MobileListWorker.swift */,
@@ -146,8 +147,6 @@
 				2E37604D231CD0B70005BB35 /* MobileListViewController.swift */,
 				2E37604E231CD0B70005BB35 /* MobileListInteractor.swift */,
 				2E37604F231CD0B70005BB35 /* MobileListEntity.swift */,
-				2E376058231D11960005BB35 /* MobileTableViewCell.swift */,
-				2E37605A231D11D90005BB35 /* DeatailCell.xib */,
 			);
 			path = MobileList;
 			sourceTree = "<group>";
@@ -159,6 +158,15 @@
 				2E37605E231D11EC0005BB35 /* star.png */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		2E376061231E1CBD0005BB35 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E376058231D11960005BB35 /* MobileTableViewCell.swift */,
+				2E37605A231D11D90005BB35 /* DeatailCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		98ACE2982CCC02CEE39572D4 /* Frameworks */ = {

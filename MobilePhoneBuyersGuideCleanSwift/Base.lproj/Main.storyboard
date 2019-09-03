@@ -91,7 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="Ich-AS-M8j"/>
                     </view>
                     <navigationItem key="navigationItem" id="41D-cl-VZE">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="dSF-cc-Bfr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="dSF-cc-Bfr">
+                            <connections>
+                                <action selector="sortBtn:" destination="325-C2-iMj" id="SgG-zC-mg4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="allBtn" destination="BRS-Xg-EwQ" id="6O9-jZ-lBF"/>

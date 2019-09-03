@@ -11,10 +11,12 @@ import UIKit
 protocol MobileListInteractorInterface {
   func getData(request: MobileList.GetData.Request)
   func setFavorite(request: MobileList.SetFavorite.Request)
+  func sortData(request: MobileList.SortData.Request)
   
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
+  
   
   
   var presenter: MobileListPresenterInterface!
@@ -40,6 +42,11 @@ class MobileListInteractor: MobileListInteractorInterface {
     self.presenter.presentFavorite(response: response)
     
   }
+  
+  func sortData(request: MobileList.SortData.Request) {
+    <#code#>
+  }
+  
   
   
 }

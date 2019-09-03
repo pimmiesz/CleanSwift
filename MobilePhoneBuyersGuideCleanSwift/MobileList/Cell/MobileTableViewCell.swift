@@ -16,13 +16,13 @@ class MobileTableViewCell: UITableViewCell {
   @IBOutlet weak var ratingLabel: UILabel!
   @IBOutlet weak var img: UIImageView!
   @IBOutlet weak var starBtn: UIButton!
-  var allVc: MobileListViewController?
+  var vc: MobileListViewControllerInterface?
   var isTapped: Bool = false
   
   
   @IBAction func tap(_ sender: UIButton) {
     isTapped = !isTapped
-    allVc?.addFavorite(cell: self, isFav: isTapped)
+    vc?.addFavorite(cell: self, isFav: isTapped)
     
   }
   func setImageButton (isfav:Bool){

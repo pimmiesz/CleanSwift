@@ -10,6 +10,7 @@ import UIKit
 
 protocol MobileListViewControllerInterface: class {
   func displayAllList(viewModel:  MobileList.GetData.ViewModel)
+  func addFavorite(cell: UITableViewCell,isFav:Bool)
 }
 
 class MobileListViewController: UIViewController, MobileListViewControllerInterface {
@@ -77,6 +78,46 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     router.passDataToNextScene(segue: segue)
   }
+  
+  func showAlert() {
+    let alert = UIAlertController(title: "Sort", message: nil, preferredStyle: .alert)
+    
+    alert.addAction(UIAlertAction(title: "Price low to high", style: .default, handler: { (_) in
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.price<second.price
+      })
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.price<second.price
+      })
+      self.mTableView.reloadData()
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Price high to low", style: .default, handler: { (_) in
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.price>second.price
+      })
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.price>second.price
+      })
+      
+      self.mTableView.reloadData()
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Rating", style: .default, handler: { (_) in
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.rating>second.rating
+      })
+      self.displayedMobile.sort(by: { (first, second) -> Bool in
+        first.rating>second.rating
+      })
+      
+      self.mTableView.reloadData()
+    }))
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+      
+    }))
+    self.present(alert, animated: true, completion: nil)
+  }
 
   @IBAction func unwindToMobileListViewController(from segue: UIStoryboardSegue) {
     print("unwind...")
@@ -86,7 +127,6 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
    @IBAction func tapFav() {
     displayedMobile = displayedMobile.filter { $0.isfav == true }
     mTableView.reloadData()
-//    isSelected = true
     allBtn.setTitleColor(UIColor.lightGray, for: .normal)
     favoriteBtn.setTitleColor(UIColor.black, for: .normal)
   }
@@ -94,9 +134,12 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
    @IBAction func tapAll() {
     displayedMobile = displayedAllMobile
     mTableView.reloadData()
-//    isSelected = false
     allBtn.setTitleColor(UIColor.black, for: .normal)
     favoriteBtn.setTitleColor(UIColor.lightGray, for: .normal)
+  }
+  
+  @IBAction func sortBtn(_ sender: Any) {
+    showAlert()
   }
   
 }
@@ -111,7 +154,7 @@ extension MobileListViewController: UITableViewDataSource, UITableViewDelegate {
       return UITableViewCell()
     }
     let bool = displayedMobile[indexPath.row].isfav
-    cell.allVc = self
+    cell.vc = self
     cell.nameLabel.text = displayedMobile[indexPath.row].name
     cell.descriptionLabel.text = displayedMobile[indexPath.row].mobileDatumDescription
     cell.priceLabel.text = displayedMobile[indexPath.row].price

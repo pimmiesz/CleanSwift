@@ -56,11 +56,28 @@ struct MobileList {
   
   struct SortData {
     /// Data struct sent to Interactor
-    struct Request {}
+    struct Request {
+      var type: String
+    }
     /// Data struct sent to Presenter
-    struct Response {}
+    struct Response {
+      var mobile: MobileData
+    }
     /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct ViewModel {
+      struct DisplayedMobile
+      {
+        let thumbImageURL: String
+        let brand: String
+        let rating: String
+        let id: Int
+        let name, mobileDatumDescription: String
+        let price: String
+        var isfav:Bool = false
+      }
+      var displayedMobile: [DisplayedMobile]
+      
+    }
   }
   
   struct GetData {
