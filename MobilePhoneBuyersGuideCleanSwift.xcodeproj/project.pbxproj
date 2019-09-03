@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22B3948B3F1FC97CC527046B /* Pods_MobilePhoneBuyersGuideCleanSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9C6E5FA04208112275FC18 /* Pods_MobilePhoneBuyersGuideCleanSwift.framework */; };
+		2E375FF1231CCD510005BB35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E375FF0231CCD510005BB35 /* AppDelegate.swift */; };
+		2E375FF6231CCD510005BB35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E375FF4231CCD510005BB35 /* Main.storyboard */; };
+		2E375FF8231CCD520005BB35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E375FF7231CCD520005BB35 /* Assets.xcassets */; };
+		2E375FFB231CCD520005BB35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E375FF9231CCD520005BB35 /* LaunchScreen.storyboard */; };
+		2E37603F231CCFD20005BB35 /* MobileDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376037231CCFD20005BB35 /* MobileDetailStore.swift */; };
+		2E376040231CCFD20005BB35 /* MobileDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376038231CCFD20005BB35 /* MobileDetailPresenter.swift */; };
+		2E376041231CCFD20005BB35 /* MobileDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376039231CCFD20005BB35 /* MobileDetailWorker.swift */; };
+		2E376042231CCFD20005BB35 /* MobileDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37603A231CCFD20005BB35 /* MobileDetailRouter.swift */; };
+		2E376043231CCFD20005BB35 /* MobileDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37603B231CCFD20005BB35 /* MobileDetailModels.swift */; };
+		2E376044231CCFD20005BB35 /* MobileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37603C231CCFD20005BB35 /* MobileDetailViewController.swift */; };
+		2E376045231CCFD20005BB35 /* MobileDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37603D231CCFD20005BB35 /* MobileDetailInteractor.swift */; };
+		2E376046231CCFD20005BB35 /* MobileDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37603E231CCFD20005BB35 /* MobileDetailEntity.swift */; };
+		2E376050231CD0B70005BB35 /* MobileListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376048231CD0B70005BB35 /* MobileListStore.swift */; };
+		2E376051231CD0B70005BB35 /* MobileListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376049231CD0B70005BB35 /* MobileListPresenter.swift */; };
+		2E376052231CD0B70005BB35 /* MobileListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604A231CD0B70005BB35 /* MobileListWorker.swift */; };
+		2E376053231CD0B70005BB35 /* MobileListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604B231CD0B70005BB35 /* MobileListRouter.swift */; };
+		2E376054231CD0B70005BB35 /* MobileListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604C231CD0B70005BB35 /* MobileListModels.swift */; };
+		2E376055231CD0B70005BB35 /* MobileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604D231CD0B70005BB35 /* MobileListViewController.swift */; };
+		2E376056231CD0B70005BB35 /* MobileListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604E231CD0B70005BB35 /* MobileListInteractor.swift */; };
+		2E376057231CD0B70005BB35 /* MobileListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37604F231CD0B70005BB35 /* MobileListEntity.swift */; };
+		2E376059231D11960005BB35 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E376058231D11960005BB35 /* MobileTableViewCell.swift */; };
+		2E37605B231D11D90005BB35 /* DeatailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E37605A231D11D90005BB35 /* DeatailCell.xib */; };
+		2E37605F231D11EC0005BB35 /* star-tap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E37605D231D11EC0005BB35 /* star-tap.png */; };
+		2E376060231D11EC0005BB35 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E37605E231D11EC0005BB35 /* star.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		075690104F1F00E53587D057 /* Pods-MobilePhoneBuyersGuideCleanSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyersGuideCleanSwift.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyersGuideCleanSwift/Pods-MobilePhoneBuyersGuideCleanSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		2E375FED231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhoneBuyersGuideCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E375FF0231CCD510005BB35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E375FF5231CCD510005BB35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E375FF7231CCD520005BB35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E375FFA231CCD520005BB35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2E375FFC231CCD520005BB35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E376037231CCFD20005BB35 /* MobileDetailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailStore.swift; sourceTree = "<group>"; };
+		2E376038231CCFD20005BB35 /* MobileDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailPresenter.swift; sourceTree = "<group>"; };
+		2E376039231CCFD20005BB35 /* MobileDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailWorker.swift; sourceTree = "<group>"; };
+		2E37603A231CCFD20005BB35 /* MobileDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailRouter.swift; sourceTree = "<group>"; };
+		2E37603B231CCFD20005BB35 /* MobileDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailModels.swift; sourceTree = "<group>"; };
+		2E37603C231CCFD20005BB35 /* MobileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController.swift; sourceTree = "<group>"; };
+		2E37603D231CCFD20005BB35 /* MobileDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailInteractor.swift; sourceTree = "<group>"; };
+		2E37603E231CCFD20005BB35 /* MobileDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailEntity.swift; sourceTree = "<group>"; };
+		2E376048231CD0B70005BB35 /* MobileListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListStore.swift; sourceTree = "<group>"; };
+		2E376049231CD0B70005BB35 /* MobileListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListPresenter.swift; sourceTree = "<group>"; };
+		2E37604A231CD0B70005BB35 /* MobileListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListWorker.swift; sourceTree = "<group>"; };
+		2E37604B231CD0B70005BB35 /* MobileListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListRouter.swift; sourceTree = "<group>"; };
+		2E37604C231CD0B70005BB35 /* MobileListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListModels.swift; sourceTree = "<group>"; };
+		2E37604D231CD0B70005BB35 /* MobileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListViewController.swift; sourceTree = "<group>"; };
+		2E37604E231CD0B70005BB35 /* MobileListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListInteractor.swift; sourceTree = "<group>"; };
+		2E37604F231CD0B70005BB35 /* MobileListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListEntity.swift; sourceTree = "<group>"; };
+		2E376058231D11960005BB35 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
+		2E37605A231D11D90005BB35 /* DeatailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeatailCell.xib; sourceTree = "<group>"; };
+		2E37605D231D11EC0005BB35 /* star-tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-tap.png"; sourceTree = "<group>"; };
+		2E37605E231D11EC0005BB35 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		404ED4FB6A5049497216CF6D /* Pods-MobilePhoneBuyersGuideCleanSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyersGuideCleanSwift.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyersGuideCleanSwift/Pods-MobilePhoneBuyersGuideCleanSwift.release.xcconfig"; sourceTree = "<group>"; };
+		4E9C6E5FA04208112275FC18 /* Pods_MobilePhoneBuyersGuideCleanSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyersGuideCleanSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E375FEA231CCD510005BB35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22B3948B3F1FC97CC527046B /* Pods_MobilePhoneBuyersGuideCleanSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09A17EAE907E2EB72B20046B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				075690104F1F00E53587D057 /* Pods-MobilePhoneBuyersGuideCleanSwift.debug.xcconfig */,
+				404ED4FB6A5049497216CF6D /* Pods-MobilePhoneBuyersGuideCleanSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2E375FE4231CCD510005BB35 = {
+			isa = PBXGroup;
+			children = (
+				2E375FEF231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift */,
+				2E375FEE231CCD510005BB35 /* Products */,
+				09A17EAE907E2EB72B20046B /* Pods */,
+				98ACE2982CCC02CEE39572D4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2E375FEE231CCD510005BB35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E375FED231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E375FEF231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift */ = {
+			isa = PBXGroup;
+			children = (
+				2E37605C231D11EC0005BB35 /* Resource */,
+				2E375FF0231CCD510005BB35 /* AppDelegate.swift */,
+				2E375FF4231CCD510005BB35 /* Main.storyboard */,
+				2E375FF7231CCD520005BB35 /* Assets.xcassets */,
+				2E375FF9231CCD520005BB35 /* LaunchScreen.storyboard */,
+				2E375FFC231CCD520005BB35 /* Info.plist */,
+				2E376047231CD0A20005BB35 /* MobileList */,
+				2E376036231CCFBA0005BB35 /* MobileDetail */,
+			);
+			path = MobilePhoneBuyersGuideCleanSwift;
+			sourceTree = "<group>";
+		};
+		2E376036231CCFBA0005BB35 /* MobileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2E376037231CCFD20005BB35 /* MobileDetailStore.swift */,
+				2E376038231CCFD20005BB35 /* MobileDetailPresenter.swift */,
+				2E376039231CCFD20005BB35 /* MobileDetailWorker.swift */,
+				2E37603A231CCFD20005BB35 /* MobileDetailRouter.swift */,
+				2E37603B231CCFD20005BB35 /* MobileDetailModels.swift */,
+				2E37603C231CCFD20005BB35 /* MobileDetailViewController.swift */,
+				2E37603D231CCFD20005BB35 /* MobileDetailInteractor.swift */,
+				2E37603E231CCFD20005BB35 /* MobileDetailEntity.swift */,
+			);
+			path = MobileDetail;
+			sourceTree = "<group>";
+		};
+		2E376047231CD0A20005BB35 /* MobileList */ = {
+			isa = PBXGroup;
+			children = (
+				2E376048231CD0B70005BB35 /* MobileListStore.swift */,
+				2E376049231CD0B70005BB35 /* MobileListPresenter.swift */,
+				2E37604A231CD0B70005BB35 /* MobileListWorker.swift */,
+				2E37604B231CD0B70005BB35 /* MobileListRouter.swift */,
+				2E37604C231CD0B70005BB35 /* MobileListModels.swift */,
+				2E37604D231CD0B70005BB35 /* MobileListViewController.swift */,
+				2E37604E231CD0B70005BB35 /* MobileListInteractor.swift */,
+				2E37604F231CD0B70005BB35 /* MobileListEntity.swift */,
+				2E376058231D11960005BB35 /* MobileTableViewCell.swift */,
+				2E37605A231D11D90005BB35 /* DeatailCell.xib */,
+			);
+			path = MobileList;
+			sourceTree = "<group>";
+		};
+		2E37605C231D11EC0005BB35 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2E37605D231D11EC0005BB35 /* star-tap.png */,
+				2E37605E231D11EC0005BB35 /* star.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		98ACE2982CCC02CEE39572D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E9C6E5FA04208112275FC18 /* Pods_MobilePhoneBuyersGuideCleanSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E375FEC231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E375FFF231CCD520005BB35 /* Build configuration list for PBXNativeTarget "MobilePhoneBuyersGuideCleanSwift" */;
+			buildPhases = (
+				427D6980FD26688F7E9A0D2D /* [CP] Check Pods Manifest.lock */,
+				2E375FE9231CCD510005BB35 /* Sources */,
+				2E375FEA231CCD510005BB35 /* Frameworks */,
+				2E375FEB231CCD510005BB35 /* Resources */,
+				3C3DA66157B5A5D13C6E8A80 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobilePhoneBuyersGuideCleanSwift;
+			productName = MobilePhoneBuyersGuideCleanSwift;
+			productReference = 2E375FED231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E375FE5231CCD510005BB35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = SCB;
+				TargetAttributes = {
+					2E375FEC231CCD510005BB35 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 2E375FE8231CCD510005BB35 /* Build configuration list for PBXProject "MobilePhoneBuyersGuideCleanSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E375FE4231CCD510005BB35;
+			productRefGroup = 2E375FEE231CCD510005BB35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E375FEC231CCD510005BB35 /* MobilePhoneBuyersGuideCleanSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E375FEB231CCD510005BB35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E37605B231D11D90005BB35 /* DeatailCell.xib in Resources */,
+				2E37605F231D11EC0005BB35 /* star-tap.png in Resources */,
+				2E375FFB231CCD520005BB35 /* LaunchScreen.storyboard in Resources */,
+				2E375FF8231CCD520005BB35 /* Assets.xcassets in Resources */,
+				2E375FF6231CCD510005BB35 /* Main.storyboard in Resources */,
+				2E376060231D11EC0005BB35 /* star.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C3DA66157B5A5D13C6E8A80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyersGuideCleanSwift/Pods-MobilePhoneBuyersGuideCleanSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyersGuideCleanSwift/Pods-MobilePhoneBuyersGuideCleanSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyersGuideCleanSwift/Pods-MobilePhoneBuyersGuideCleanSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		427D6980FD26688F7E9A0D2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilePhoneBuyersGuideCleanSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E375FE9231CCD510005BB35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E376040231CCFD20005BB35 /* MobileDetailPresenter.swift in Sources */,
+				2E37603F231CCFD20005BB35 /* MobileDetailStore.swift in Sources */,
+				2E376043231CCFD20005BB35 /* MobileDetailModels.swift in Sources */,
+				2E376051231CD0B70005BB35 /* MobileListPresenter.swift in Sources */,
+				2E376057231CD0B70005BB35 /* MobileListEntity.swift in Sources */,
+				2E376056231CD0B70005BB35 /* MobileListInteractor.swift in Sources */,
+				2E376045231CCFD20005BB35 /* MobileDetailInteractor.swift in Sources */,
+				2E376055231CD0B70005BB35 /* MobileListViewController.swift in Sources */,
+				2E376054231CD0B70005BB35 /* MobileListModels.swift in Sources */,
+				2E376053231CD0B70005BB35 /* MobileListRouter.swift in Sources */,
+				2E376046231CCFD20005BB35 /* MobileDetailEntity.swift in Sources */,
+				2E376059231D11960005BB35 /* MobileTableViewCell.swift in Sources */,
+				2E376041231CCFD20005BB35 /* MobileDetailWorker.swift in Sources */,
+				2E376044231CCFD20005BB35 /* MobileDetailViewController.swift in Sources */,
+				2E376042231CCFD20005BB35 /* MobileDetailRouter.swift in Sources */,
+				2E375FF1231CCD510005BB35 /* AppDelegate.swift in Sources */,
+				2E376050231CD0B70005BB35 /* MobileListStore.swift in Sources */,
+				2E376052231CD0B70005BB35 /* MobileListWorker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2E375FF4231CCD510005BB35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E375FF5231CCD510005BB35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2E375FF9231CCD520005BB35 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E375FFA231CCD520005BB35 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E375FFD231CCD520005BB35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E375FFE231CCD520005BB35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E376000231CCD520005BB35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 075690104F1F00E53587D057 /* Pods-MobilePhoneBuyersGuideCleanSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = APLQ85S5UL;
+				INFOPLIST_FILE = MobilePhoneBuyersGuideCleanSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scb.ios.advanced.MobilePhoneBuyersGuideCleanSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E376001231CCD520005BB35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 404ED4FB6A5049497216CF6D /* Pods-MobilePhoneBuyersGuideCleanSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = APLQ85S5UL;
+				INFOPLIST_FILE = MobilePhoneBuyersGuideCleanSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scb.ios.advanced.MobilePhoneBuyersGuideCleanSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E375FE8231CCD510005BB35 /* Build configuration list for PBXProject "MobilePhoneBuyersGuideCleanSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E375FFD231CCD520005BB35 /* Debug */,
+				2E375FFE231CCD520005BB35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E375FFF231CCD520005BB35 /* Build configuration list for PBXNativeTarget "MobilePhoneBuyersGuideCleanSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E376000231CCD520005BB35 /* Debug */,
+				2E376001231CCD520005BB35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E375FE5231CCD510005BB35 /* Project object */;
+}

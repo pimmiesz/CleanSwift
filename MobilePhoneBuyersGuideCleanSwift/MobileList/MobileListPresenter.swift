@@ -8,19 +8,38 @@
 
 import UIKit
 
+
 protocol MobileListPresenterInterface {
-  func presentSomething(response: MobileList.Something.Response)
+  func presentData(response: MobileList.GetData.Response)
+  func presentFavorite(response: MobileList.SetFavorite.Response)
 }
 
 class MobileListPresenter: MobileListPresenterInterface {
+  
+  
   weak var viewController: MobileListViewControllerInterface!
 
   // MARK: - Presentation logic
 
-  func presentSomething(response: MobileList.Something.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-
-    let viewModel = MobileList.Something.ViewModel()
-    viewController.displaySomething(viewModel: viewModel)
+  func presentData(response: MobileList.GetData.Response) {
+    var displayedMobiles: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+    for mb in response.mobile{
+        let mobileData = MobileList.GetData.ViewModel.DisplayedMobile(thumbImageURL: mb.thumbImageURL, brand: mb.brand, rating: "Rating: \( mb.rating)", id: mb.id, name: mb.name, mobileDatumDescription: mb.mobileDatumDescription, price: "Price: $\(mb.price)", isfav: mb.isfav)
+      displayedMobiles.append(mobileData)
+    }
+    
+    let viewModel = MobileList.GetData.ViewModel(displayedMobile: displayedMobiles)
+    viewController.displayAllList(viewModel: viewModel)
+  }
+  
+  func presentFavorite(response: MobileList.SetFavorite.Response) {
+    var displayedMobiles: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+    for mb in response.mobile{
+      let mobileData = MobileList.GetData.ViewModel.DisplayedMobile(thumbImageURL: mb.thumbImageURL, brand: mb.brand, rating: "Rating: \( mb.rating)", id: mb.id, name: mb.name, mobileDatumDescription: mb.mobileDatumDescription, price: "Price: $\(mb.price)", isfav: mb.isfav)
+      displayedMobiles.append(mobileData)
+    }
+    
+    let viewModel = MobileList.GetData.ViewModel(displayedMobile: displayedMobiles)
+    viewController.displayAllList(viewModel: viewModel)
   }
 }

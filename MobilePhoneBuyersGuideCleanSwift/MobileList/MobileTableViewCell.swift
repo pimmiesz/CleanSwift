@@ -16,7 +16,7 @@ class MobileTableViewCell: UITableViewCell {
   @IBOutlet weak var ratingLabel: UILabel!
   @IBOutlet weak var img: UIImageView!
   @IBOutlet weak var starBtn: UIButton!
-  var allVc: AllViewController?
+  var allVc: MobileListViewController?
   var isTapped: Bool = false
   
   

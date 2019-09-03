@@ -9,27 +9,38 @@
 import UIKit
 
 protocol MobileListInteractorInterface {
-  func doSomething(request: MobileList.Something.Request)
-  var model: Entity? { get }
+  func getData(request: MobileList.GetData.Request)
+  func setFavorite(request: MobileList.SetFavorite.Request)
+  
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
+  
+  
   var presenter: MobileListPresenterInterface!
   var worker: MobileListWorker?
-  var model: Entity?
-
+  var mobileData: [MobileElement] = []
+  
+  
+  
   // MARK: - Business logic
-
-  func doSomething(request: MobileList.Something.Request) {
-    worker?.doSomeWork { [weak self] in
-      if case let Result.success(data) = $0 {
-        // If the result was successful, we keep the data so that we can deliver it to another view controller through the router.
-        self?.model = data
-      }
-
-      // NOTE: Pass the result to the Presenter. This is done by creating a response model with the result from the worker. The response could contain a type like UserResult enum (as declared in the SCB Easy project) with the result as an associated value.
-      let response = MobileList.Something.Response()
-      self?.presenter.presentSomething(response: response)
-    }
+  
+  func getData(request: MobileList.GetData.Request) {
+    
+    worker?.getData({ (result) in
+      self.mobileData = result
+      let response = MobileList.GetData.Response(mobile: result)
+      self.presenter.presentData(response: response)
+    })
   }
+  
+  func setFavorite(request: MobileList.SetFavorite.Request) {
+    mobileData[request.indexPath].isfav = !mobileData[request.indexPath].isfav
+    let response = MobileList.SetFavorite.Response.init(mobile: mobileData)
+    self.presenter.presentFavorite(response: response)
+    
+  }
+  
+  
 }
+

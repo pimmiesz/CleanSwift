@@ -9,10 +9,15 @@
 import UIKit
 
 protocol MobileListViewControllerInterface: class {
-  func displaySomething(viewModel: MobileList.Something.ViewModel)
+  func displayAllList(viewModel:  MobileList.GetData.ViewModel)
 }
 
 class MobileListViewController: UIViewController, MobileListViewControllerInterface {
+ @IBOutlet var mTableView: UITableView!
+  @IBOutlet weak var favoriteBtn: UIButton!
+  @IBOutlet weak var allBtn: UIButton!
+
+  
   var interactor: MobileListInteractorInterface!
   var router: MobileListRouter!
 
@@ -45,23 +50,26 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
   override func viewDidLoad() {
     super.viewDidLoad()
     doSomethingOnLoad()
+    mTableView.register(UINib(nibName: "DeatailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
   }
 
   // MARK: - Event handling
 
   func doSomethingOnLoad() {
     // NOTE: Ask the Interactor to do some work
-
-    let request = MobileList.Something.Request()
-    interactor.doSomething(request: request)
+    let request = MobileList.GetData.Request()
+    interactor.getData(request: request)
   }
 
   // MARK: - Display logic
-
-  func displaySomething(viewModel: MobileList.Something.ViewModel) {
-    // NOTE: Display the result from the Presenter
-
-    // nameTextField.text = viewModel.name
+  
+  var displayedMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+  var displayedAllMobile: [MobileList.GetData.ViewModel.DisplayedMobile] = []
+  func displayAllList(viewModel: MobileList.GetData.ViewModel) {
+    displayedMobile = viewModel.displayedMobile
+    displayedAllMobile = viewModel.displayedMobile
+    print(displayedMobile)
+    mTableView.reloadData()
   }
 
   // MARK: - Router
@@ -73,5 +81,89 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
   @IBAction func unwindToMobileListViewController(from segue: UIStoryboardSegue) {
     print("unwind...")
     router.passDataToNextScene(segue: segue)
+  }
+  
+   @IBAction func tapFav() {
+    displayedMobile = displayedMobile.filter { $0.isfav == true }
+    mTableView.reloadData()
+//    isSelected = true
+    allBtn.setTitleColor(UIColor.lightGray, for: .normal)
+    favoriteBtn.setTitleColor(UIColor.black, for: .normal)
+  }
+  
+   @IBAction func tapAll() {
+    displayedMobile = displayedAllMobile
+    mTableView.reloadData()
+//    isSelected = false
+    allBtn.setTitleColor(UIColor.black, for: .normal)
+    favoriteBtn.setTitleColor(UIColor.lightGray, for: .normal)
+  }
+  
+}
+
+extension MobileListViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.displayedMobile.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") as? MobileTableViewCell else {
+      return UITableViewCell()
+    }
+    let bool = displayedMobile[indexPath.row].isfav
+    cell.allVc = self
+    cell.nameLabel.text = displayedMobile[indexPath.row].name
+    cell.descriptionLabel.text = displayedMobile[indexPath.row].mobileDatumDescription
+    cell.priceLabel.text = displayedMobile[indexPath.row].price
+    cell.ratingLabel.text = displayedMobile[indexPath.row].rating
+    cell.img.loadImageUrl(displayedMobile[indexPath.row].thumbImageURL)
+//    cell.starBtn.isHidden = isSelected
+    cell.setImageButton(isfav: bool)
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "showDetail", sender: displayedMobile[indexPath.row])
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if (editingStyle == .delete) {
+//      let id = favInfo[indexPath.row].id
+//      favInfo.remove(at: indexPath.row)
+//      info = favInfo
+//      var index = 0
+//      while(index < allInfo.count) {
+//        if id == allInfo[index].id {
+//          allInfo[index].isfav = false
+//          let index = idList.firstIndex(of: self.allInfo[index].id)
+//          idList.remove(at: index ?? 0)
+//        }
+//        index+=1
+//      }
+      
+      mTableView.reloadData()
+    }
+  }
+  
+  func addFavorite(cell: UITableViewCell,isFav:Bool) {
+    let favCell = mTableView.indexPath(for: cell)
+    let index = favCell?.row ?? 0 as Int
+    let request = MobileList.SetFavorite.Request(indexPath: index)
+    interactor.setFavorite(request: request)
+    mTableView.reloadData()
+  }
+  
+}
+
+extension UIImageView {
+  func loadImageUrl(_ urlString: String) {
+    if let url = URL(string: urlString) {
+      af_setImage(withURL: url)
+    }
   }
 }
